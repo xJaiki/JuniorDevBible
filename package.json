@@ -201,11 +201,13 @@
     "concurrently": "^9.2.1",
     "tailwindcss": "^4.2.0"
   },
+  "optionalDependencies": {
+    "@tailwindcss/oxide-linux-x64-gnu": "^4.0.0"
+  },
   "scripts": {
-    "start": "concurrently \"tailwindcss -i ./src/css/tailwind.css -o ./src/css/styles.min.css --watch\" \"eleventy --serve\"",
-    "build": "tailwindcss -i ./src/css/tailwind.css -o ./src/css/styles.min.css && eleventy",
-    "tw:build": "tailwindcss -i ./src/css/tailwind.css -o ./src/css/styles.min.css",
-    "tw:watch": "tailwindcss -i ./src/css/tailwind.css -o ./src/css/styles.min.css --watch"
+    "start": "concurrently \"eleventy --serve\" \"npx @tailwindcss/cli -i ./src/css/tailwind.css -o ./_site/css/styles.min.css --watch\"",
+    "build": "eleventy && npx @tailwindcss/cli -i ./src/css/tailwind.css -o ./_site/css/styles.min.css --minify",
+    "postinstall": "npm rebuild @tailwindcss/oxide || true"
   },
   "author": "",
   "license": "ISC"
