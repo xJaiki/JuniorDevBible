@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@shikijs/markdown-it": "^3.22.0",
     "a-sync-waterfall": "^1.0.1",
     "acorn": "^7.4.1",
     "ansi-styles": "^4.3.0",
@@ -169,6 +170,7 @@
     "set-function-length": "^1.2.2",
     "shebang-command": "^2.0.0",
     "shebang-regex": "^3.0.0",
+    "shiki": "^3.22.0",
     "slash": "^1.0.0",
     "slugify": "^1.6.6",
     "source-map": "^0.6.1",
@@ -193,12 +195,18 @@
     "yallist": "^4.0.0"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^3.1.2",
+    "@tailwindcss/cli": "^4.2.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.2.0"
   },
   "scripts": {
-    "start": "eleventy --serve",
-    "build": "eleventy"
-  },  
+    "start": "concurrently \"tailwindcss -i ./src/css/tailwind.css -o ./src/css/styles.min.css --watch\" \"eleventy --serve\"",
+    "build": "tailwindcss -i ./src/css/tailwind.css -o ./src/css/styles.min.css && eleventy",
+    "tw:build": "tailwindcss -i ./src/css/tailwind.css -o ./src/css/styles.min.css",
+    "tw:watch": "tailwindcss -i ./src/css/tailwind.css -o ./src/css/styles.min.css --watch"
+  },
   "author": "",
   "license": "ISC"
 }

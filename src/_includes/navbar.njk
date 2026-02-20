@@ -1,3 +1,10 @@
 {% for chapter in collections.chapters %}
-    <li class="list-group-item"><a id="nav-item-{{ chapter.data.title | slug }}" href="#card-{{ chapter.data.title | slug }}">{{ chapter.data.title }}</a></li>
+    <li>
+        <a class="nav-link"
+           href="#card-{{ chapter.data.title | slug }}"
+           data-target="card-{{ chapter.data.title | slug }}"
+           onclick="if(typeof closeMobileDrawer==='function') closeMobileDrawer()">
+            {{ chapter.data.title }}
+        </a>
+    </li>
 {% endfor %}

@@ -1,427 +1,653 @@
 <!DOCTYPE html>
-<html lang="it">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bibbia junior dev</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-            crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-            rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet" href="/css/styles.css">
-        <style>
-            body {
-                font-family: 'Roboto', sans-serif;
-                background: linear-gradient(to right, #222831, #31363F);
-                color: #333;
-            }
-            pre {
-                font-family: 'Roboto Mono', monospace !important;
-                background-color: #f8f9fa;
-                border-radius: 10px;
-                padding: 10px;
-                overflow-x: auto;
-                color: #333;
-            }
-            h1 {
-                font-weight: 700;
-                text-decoration: underline dotted;
-                font-size: 2.5rem;
-            }
-            h2 {
-                font-weight: 500;
-                font-size: 1.7rem;
-            }
-            h3 {
-                font-weight: 400;
-                font-size: 1.5rem;
-            }
-            h4 {
-                font-weight: 300;
-                font-size: 1.2rem;
-            }
-            .btn-primary {
-                background-color: #222831;
-                border-color: #222831;
-            }
-            .btn-primary:hover {
-                background-color: #393e46;
-                border-color: #393e46;
-            }
-            .btn-primary:focus {
-                background-color: #393e46;
-                border-color: #393e46;
-            }
-            .btn-primary:active {
-                background-color: #17191c !important;
-                border-color: #17191c !important;
-            }
-            .navbar {
-                backdrop-filter: blur(10px);
-                background: rgba(0, 0, 0, 0.7) !important;
-            }
-            .card {
-                backdrop-filter: blur(10px);
-                background: rgba(255, 255, 255, 0.8);
-                border: none;
-                border-radius: 15px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            }
-            .card-header,
-            .card-body {
-                border-radius: 15px;
-            }
-            .list-group-item {
-                background: transparent;
-                border: none;
-                color: #007bff;
-            }
-            .list-group-item:hover {
-                color: #0056b3;
-                cursor: pointer;
-            }
-            .search-bar {
-                margin-bottom: 20px;
-            }
-            .highlight {
-                background-color: rgba(0, 123, 255, 0.25);
-                color: #fff !important;
-                border-radius: 5px;
-                padding: 5px;
-                margin: 5px;
-            }
-            .btn-scroll {
-                background: #222831;
-                color: #fff;
-                border: none;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-                cursor: pointer;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="/">Bibbia Junior developer</a>
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarNav"
-                        aria-controls="navbarNav"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Home</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <button class="btn btn-primary" aria-current="page" id="infoButton">Info</button>
-                    <button class="btn btn-primary ms-2" id="generatePdfButton">Genera PDF</button>
-                    <button class="btn btn-primary ms-2" id="translate">Traduci</button>
+<html lang="it" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibbia Junior Dev</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind compiled CSS -->
+    <link rel="stylesheet" href="/css/styles.min.css">
+</head>
+<body style="background: linear-gradient(160deg, #0d1017 0%, #0f1520 50%, #0d1017 100%); min-height: 100vh;">
+
+    <!-- ── READING PROGRESS ─────────────────────────────────────────── -->
+    <div id="readingProgress" class="reading-progress"></div>
+
+    <!-- ── TOP NAVBAR ───────────────────────────────────────────────── -->
+    <header id="topbar"
+            style="position: sticky; top: 0; z-index: 40;
+                   background: rgba(10,13,20,0.85);
+                   backdrop-filter: blur(20px) saturate(180%);
+                   -webkit-backdrop-filter: blur(20px) saturate(180%);
+                   border-bottom: 1px solid rgba(255,255,255,0.06);
+                   box-shadow: 0 1px 0 rgba(255,255,255,0.04);">
+        <div style="max-width: 1440px; margin: 0 auto; padding: 0 1.5rem; height: 60px; display: flex; align-items: center; gap: 1rem;">
+
+            <!-- Brand -->
+            <a href="/" style="flex-shrink: 0; display: flex; align-items: center; gap: 0.625rem; text-decoration: none;">
+                <div style="width: 28px; height: 28px; border-radius: 7px; background: linear-gradient(135deg, #4f46e5, #7c3aed); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(79,70,229,0.4);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
                 </div>
+                <div style="display: flex; flex-direction: column; line-height: 1.1;">
+                    <span class="gradient-text" style="font-weight: 700; font-size: 0.9rem; letter-spacing: -0.01em;">Bibbia Junior Dev</span>
+                    <span style="color: rgb(71 85 105); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;">Reference Guide</span>
+                </div>
+            </a>
+
+            <div style="flex: 1;"></div>
+
+            <!-- Desktop actions -->
+            <nav style="display: flex; align-items: center; gap: 0.375rem;" id="desktopNav">
+                <a href="/"
+                   style="font-size: 0.8125rem; color: rgb(100 116 139); text-decoration: none; padding: 0.375rem 0.75rem; border-radius: 0.5rem; transition: all 0.2s; display: flex; align-items: center; gap: 0.375rem;"
+                   onmouseover="this.style.color='rgb(226 232 240)'; this.style.background='rgba(255,255,255,0.06)';"
+                   onmouseout="this.style.color='rgb(100 116 139)'; this.style.background='transparent';">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                    Home
+                </a>
+                <button id="infoBtn"
+                        style="font-size: 0.8125rem; color: rgb(100 116 139); background: transparent; border: 1px solid rgba(255,255,255,0.07); padding: 0.375rem 0.75rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 0.375rem;"
+                        onmouseover="this.style.color='rgb(226 232 240)'; this.style.background='rgba(255,255,255,0.06)';"
+                        onmouseout="this.style.color='rgb(100 116 139)'; this.style.background='transparent';">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    Info
+                </button>
+                <button id="generatePdfBtn"
+                        style="font-size: 0.8125rem; color: rgb(165 180 252); background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.2); padding: 0.375rem 0.875rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 0.375rem; font-weight: 500;"
+                        onmouseover="this.style.background='rgba(99,102,241,0.22)'; this.style.borderColor='rgba(99,102,241,0.35)';"
+                        onmouseout="this.style.background='rgba(99,102,241,0.12)'; this.style.borderColor='rgba(99,102,241,0.2)';">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    PDF
+                </button>
             </nav>
-        </header>
-        <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="pdfModalLabel">Seleziona i capitoli</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="pdfForm">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="all" id="selectAll" checked>
-                                <label class="form-check-label" for="selectAll">
-                                    Seleziona tutti
-                                </label>
-                            </div>
-                            {% for chapter in collections.chapters %}
-                                <div class="form-check">
-                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="{{ chapter.data.title | slug }}" id="{{ chapter.data.title | slug }}" checked>
-                                    <label class="form-check-label" for="{{ chapter.data.title | slug }}">
-                                        {{ chapter.data.title }}
-                                    </label>
-                                </div>
-                            {% endfor %}
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                        <button type="button" class="btn btn-primary" id="downloadPdfButton">Scarica PDF</button>
-                    </div>
-                </div>
-            </div>
+
+            <!-- Mobile: hamburger -->
+            <button id="mobileMenuBtn"
+                    style="display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.5rem;"
+                    aria-label="Menu">
+                <span style="display: block; width: 20px; height: 1.5px; background: rgb(148 163 184); border-radius: 2px; transition: 0.3s;"></span>
+                <span style="display: block; width: 20px; height: 1.5px; background: rgb(148 163 184); border-radius: 2px; transition: 0.3s;"></span>
+                <span style="display: block; width: 14px; height: 1.5px; background: rgb(148 163 184); border-radius: 2px; transition: 0.3s;"></span>
+            </button>
         </div>
-        <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="infoModalLabel">Informazioni</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Questa guida e' stata creata con
-                            <a href="https://www.11ty.dev/">Eleventy</a>
-                            e
-                            <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
-                        <p>La guida e' in continuo aggiornamento e miglioramento</p>
-                        <p>Se manca qualcosa o vuoi contribuire, puoi farlo aprendo una PR sulla
-                            <a href="https://github.com/xjaiki">repository</a>
-                            , aggiungendo un capitolo o
-                                                        migliorando uno esistente.</p>
-                        <p>Trovi tutte le informazioni sul readme del progetto!</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="easterEggBtn">Non cliccarmi</button>
-                    </div>
-                </div>
-            </div>
+    </header>
+
+    <!-- Mobile drawer overlay -->
+    <div id="mobileDrawerOverlay"
+         style="display: none; position: fixed; inset: 0; z-index: 35; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);"
+         onclick="closeMobileDrawer()">
+    </div>
+
+    <!-- Mobile drawer -->
+    <div id="mobileDrawer"
+         style="display: none; position: fixed; top: 0; right: 0; bottom: 0; z-index: 36; width: 280px;
+                background: #0f1420; border-left: 1px solid rgba(255,255,255,0.07); overflow-y: auto;
+                transform: translateX(100%); transition: transform 0.3s ease;">
+        <div style="padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-weight: 600; color: white; font-size: 0.875rem;">Capitoli</span>
+            <button onclick="closeMobileDrawer()"
+                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: rgb(148 163 184); cursor: pointer; width: 1.75rem; height: 1.75rem; border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;">✕</button>
         </div>
-        <button
-            id="scrollTopBtn"
-            class="btn-scroll"
-            style="display: none; position: fixed; bottom: 20px; right: 20px; z-index:99">Top</button>
-        <div class="container-fluid mt-4">
-            <div class="row">
-                <div class="col-md-8">
-                    {% for chapter in collections.chapters %}
-                        <div class="card mb-4 chapter-card" id="card-{{ chapter.data.title | slug }}">
-                            <div class="card-body">
-                                <h1 id="{{ chapter.data.title | slug }}">{{ chapter.data.title }}</h2>
-                                <div class="card-text">
-                                    {{ chapter.templateContent | safe }}
-                                </div>
-                            </div>
+        <nav style="padding: 0.75rem 1rem;">
+            <div style="margin-bottom: 0.75rem;">
+                <input id="mobileSearch" type="text" placeholder="Cerca capitolo…"
+                       style="width: 100%; padding: 0.5rem 0.75rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 0.5rem; color: white; font-size: 0.8125rem; outline: none; box-sizing: border-box;"
+                       oninput="filterNav(this.value)">
+            </div>
+            <ul id="mobileNavList" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1px;">
+                {% include "navbar.njk" %}
+            </ul>
+        </nav>
+        <div style="padding: 1rem; border-top: 1px solid rgba(255,255,255,0.07); display: flex; flex-direction: column; gap: 0.5rem;">
+            <button id="infoMobileBtn"
+                    style="width: 100%; padding: 0.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 0.5rem; color: rgb(148 163 184); cursor: pointer; font-size: 0.8125rem;">
+                Info
+            </button>
+            <button id="pdfMobileBtn"
+                    style="width: 100%; padding: 0.5rem; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.2); border-radius: 0.5rem; color: rgb(165 180 252); cursor: pointer; font-size: 0.8125rem; font-weight: 500;">
+                Genera PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- ── MAIN LAYOUT ──────────────────────────────────────────────── -->
+    <div style="max-width: 1440px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: 1fr 272px; gap: 2.5rem; align-items: start;"
+         id="mainLayout">
+
+        <!-- ── MAIN COLUMN ────────────────────────────────────────── -->
+        <main>
+
+            <!-- ── HERO SECTION ──────────────────────────────────── -->
+            <div class="hero-section">
+                <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0.75rem; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2); border-radius: 9999px; margin-bottom: 1.25rem;">
+                    <span style="width: 6px; height: 6px; border-radius: 50%; background: #818cf8; display: inline-block;"></span>
+                    <span style="font-size: 0.75rem; font-weight: 600; color: rgb(165 180 252); letter-spacing: 0.04em;">{{ collections.chapters | length }} capitoli disponibili</span>
+                </div>
+                <h1 style="font-size: 2.25rem; font-weight: 800; color: white; margin: 0 0 0.75rem 0; line-height: 1.15; letter-spacing: -0.03em;">
+                    La tua <span class="gradient-text">guida di riferimento</span><br>da sviluppatore junior
+                </h1>
+                <p style="font-size: 1rem; color: rgb(100 116 139); margin: 0; line-height: 1.7; max-width: 560px;">
+                    Tutto quello che devi sapere su Java, Spring, Git, Docker, database e molto altro — in un unico posto.
+                </p>
+                <div style="height: 1px; background: linear-gradient(90deg, rgba(99,102,241,0.3), transparent); margin-top: 2rem;"></div>
+            </div>
+
+            <!-- ── CHAPTER CARDS ──────────────────────────────────── -->
+            {% for chapter in collections.chapters %}
+            <article class="chapter-card"
+                     id="card-{{ chapter.data.title | slug }}"
+                     data-index="{{ loop.index0 }}">
+
+                <!-- Colored top accent bar -->
+                <div class="chapter-accent-bar"
+                     style="height: 3px; background: linear-gradient(90deg, var(--chapter-color, #6366f1), transparent);"></div>
+
+                <div style="padding: 1.75rem 2rem 2rem 2rem;">
+                    <!-- Chapter header -->
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                        <div class="chapter-num" style="flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: 0.5rem; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.18); display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 0.7rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; color: rgb(148 163 184);">{{ "%02d" | format(loop.index) if false }}{{ loop.index }}</span>
                         </div>
-                    {% endfor %}
-                </div>
-                <aside class="col-md-4">
-                    <div class="card sticky-top">
-                        <div class="card-header">
-                            Capitoli
+                        <div>
+                            <h2 id="{{ chapter.data.title | slug }}"
+                                class="chapter-heading"
+                                style="font-size: 1.35rem; font-weight: 700; color: white; margin: 0 0 0.2rem 0; line-height: 1.25; letter-spacing: -0.02em;">
+                                {{ chapter.data.title }}
+                            </h2>
+                            <p style="margin: 0; font-size: 0.75rem; color: rgb(71 85 105); font-family: 'JetBrains Mono', monospace;">capitolo {{ loop.index }}</p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            {% include "navbar.njk" %}
-                        </ul>
                     </div>
-                </aside>
+
+                    <!-- Chapter content -->
+                    <div class="prose-custom chapter-content">
+                        {{ chapter.templateContent | safe }}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+
+        </main>
+
+        <!-- ── SIDEBAR ────────────────────────────────────────────── -->
+        <aside id="sidebar"
+               style="position: sticky; top: 76px; max-height: calc(100vh - 92px); overflow-y: auto;
+                      border-radius: 0.875rem; background: rgba(15,18,28,0.7);
+                      border: 1px solid rgba(255,255,255,0.07); padding: 1.25rem;
+                      backdrop-filter: blur(12px);">
+
+            <!-- Sidebar header -->
+            <div style="margin-bottom: 1rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                    <p style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgb(71 85 105); margin: 0;">
+                        Indice
+                    </p>
+                    <span style="font-size: 0.7rem; font-weight: 600; color: rgb(99 102 241); background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.18); padding: 0.1rem 0.5rem; border-radius: 9999px; font-family: 'JetBrains Mono', monospace;">
+                        {{ collections.chapters | length }}
+                    </span>
+                </div>
+                <!-- Search -->
+                <div style="position: relative;">
+                    <input id="sidebarSearch" type="text" placeholder="Filtra capitoli…"
+                           style="width: 100%; padding: 0.4rem 0.75rem 0.4rem 2.1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 0.5rem; color: white; font-size: 0.8rem; outline: none; box-sizing: border-box; transition: border-color 0.2s;"
+                           onfocus="this.style.borderColor='rgba(99,102,241,0.35)';"
+                           onblur="this.style.borderColor='rgba(255,255,255,0.07)';"
+                           oninput="filterNav(this.value)">
+                    <svg style="position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); color: rgb(71 85 105); pointer-events: none;" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </div>
+            </div>
+
+            <!-- Nav list -->
+            <nav>
+                <ul id="sidebarNavList" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1px;">
+                    {% include "navbar.njk" %}
+                </ul>
+            </nav>
+
+            <!-- Sidebar footer -->
+            <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 0.5rem;">
+                <button id="infoSidebarBtn"
+                        style="width: 100%; padding: 0.45rem 0.75rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 0.5rem; color: rgb(100 116 139); cursor: pointer; font-size: 0.8rem; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.375rem;"
+                        onmouseover="this.style.background='rgba(255,255,255,0.07)'; this.style.color='rgb(226 232 240)';"
+                        onmouseout="this.style.background='rgba(255,255,255,0.03)'; this.style.color='rgb(100 116 139)';">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    Info
+                </button>
+                <button id="pdfSidebarBtn"
+                        style="width: 100%; padding: 0.45rem 0.75rem; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.18); border-radius: 0.5rem; color: rgb(165 180 252); cursor: pointer; font-size: 0.8rem; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.375rem; font-weight: 500;"
+                        onmouseover="this.style.background='rgba(99,102,241,0.2)';"
+                        onmouseout="this.style.background='rgba(99,102,241,0.1)';">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Genera PDF
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ── SCROLL TO TOP ────────────────────────────────────────────── -->
+    <button id="scrollTopBtn" class="scroll-top-btn" style="display: none;" aria-label="Torna su"
+            onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- ── INFO MODAL ───────────────────────────────────────────────── -->
+    <div id="infoModal" class="modal-backdrop" style="display: none;" onclick="if(event.target===this)closeModal('infoModal')">
+        <div class="modal-dialog" onclick="event.stopPropagation()">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 0.625rem;">
+                    <div style="width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #4f46e5, #7c3aed); display: flex; align-items: center; justify-content: center;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <h3 style="margin: 0; font-size: 1rem; font-weight: 700; color: white;">Bibbia Junior Dev</h3>
+                </div>
+                <button onclick="closeModal('infoModal')"
+                        style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: rgb(100 116 139); width: 1.875rem; height: 1.875rem; border-radius: 0.5rem; cursor: pointer; font-size: 0.875rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s;"
+                        onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.color='white';"
+                        onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='rgb(100 116 139)';">✕</button>
+            </div>
+            <div style="color: rgb(148 163 184); font-size: 0.875rem; line-height: 1.75; display: flex; flex-direction: column; gap: 0.625rem;">
+                <p style="margin: 0;">Questa guida è stata creata con
+                    <a href="https://www.11ty.dev/" style="color: rgb(129 140 248); text-decoration: none; font-weight: 500;">Eleventy</a>
+                    e <a href="https://tailwindcss.com/" style="color: rgb(129 140 248); text-decoration: none; font-weight: 500;">Tailwind CSS</a>.
+                </p>
+                <p style="margin: 0;">La guida è in continuo aggiornamento e miglioramento.</p>
+                <p style="margin: 0;">Se manca qualcosa o vuoi contribuire, puoi farlo aprendo una PR sulla
+                    <a href="https://github.com/xjaiki" style="color: rgb(129 140 248); text-decoration: none; font-weight: 500;">repository</a>,
+                    aggiungendo un capitolo o migliorando uno esistente.
+                </p>
+                <p style="margin: 0;">Trovi tutte le informazioni nel README del progetto!</p>
+            </div>
+            <div style="margin-top: 1.5rem; display: flex; gap: 0.625rem; justify-content: flex-end;">
+                <button id="easterEggBtn"
+                        style="padding: 0.5rem 0.875rem; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.15); border-radius: 0.5rem; color: rgb(252 165 165); cursor: pointer; font-size: 0.8125rem; transition: all 0.2s;"
+                        onmouseover="this.style.background='rgba(239,68,68,0.15)';"
+                        onmouseout="this.style.background='rgba(239,68,68,0.08)';">
+                    Non cliccarmi
+                </button>
+                <button onclick="closeModal('infoModal')"
+                        style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.5rem; color: rgb(226 232 240); cursor: pointer; font-size: 0.8125rem; font-weight: 500; transition: all 0.2s;"
+                        onmouseover="this.style.background='rgba(255,255,255,0.1)';"
+                        onmouseout="this.style.background='rgba(255,255,255,0.06)';">
+                    Chiudi
+                </button>
             </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-        <script>
-            document.querySelectorAll('pre').forEach(function (pre) {
-                const button = document.createElement('button');
-                button.className = 'btn btn-primary btn-sm float-end';
-                button.textContent = 'Copia';
-                button.addEventListener('click', function () {
-                button.textContent = '';
-                    navigator
-                        .clipboard
-                        .writeText(pre.textContent)
-                        .then(function () {
-                            button.textContent = 'Copiato!';
-                            setTimeout(function () {
-                                button.textContent = 'Copia';
-                            }, 2000);
-                        });
-                });
-                pre.appendChild(button);
-            });
-            const easterEggBtn = document.getElementById('easterEggBtn');
-            easterEggBtn.addEventListener('click', function () {
-                location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-            });
-            const infoButton = document.getElementById('infoButton');
-            const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
-            infoButton.addEventListener('click', function () {
-                infoModal.show();
-            });
-            if (window.innerWidth < 768) {
-                const navbar = document.querySelector('.navbar-nav');
-                const aside = document.querySelector('aside');
-                navbar.innerHTML = aside.innerHTML;
-                aside.classList.add('d-none');
-                navbar.classList.add('d-block');
+    </div>
+
+    <!-- ── PDF MODAL ────────────────────────────────────────────────── -->
+    <div id="pdfModal" class="modal-backdrop" style="display: none;" onclick="if(event.target===this)closeModal('pdfModal')">
+        <div class="modal-dialog" onclick="event.stopPropagation()" style="max-width: 520px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+                <h3 style="margin: 0; font-size: 1rem; font-weight: 700; color: white;">Seleziona capitoli</h3>
+                <button onclick="closeModal('pdfModal')"
+                        style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: rgb(100 116 139); width: 1.875rem; height: 1.875rem; border-radius: 0.5rem; cursor: pointer; font-size: 0.875rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s;"
+                        onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.color='white';"
+                        onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='rgb(100 116 139)';">✕</button>
+            </div>
+
+            <div style="margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.07);">
+                <label style="display: flex; align-items: center; gap: 0.625rem; cursor: pointer;">
+                    <input type="checkbox" id="selectAll" checked
+                           style="appearance: none; width: 1rem; height: 1rem; border: 1.5px solid rgba(99,102,241,0.4); border-radius: 0.25rem; background: rgba(99,102,241,0.1); cursor: pointer; position: relative;"
+                           onchange="toggleSelectAll(this)">
+                    <span style="font-size: 0.875rem; font-weight: 600; color: white;">Seleziona tutti</span>
+                </label>
+            </div>
+
+            <div style="max-height: 320px; overflow-y: auto; display: flex; flex-direction: column; gap: 2px; padding-right: 0.25rem;">
+                {% for chapter in collections.chapters %}
+                <label style="display: flex; align-items: center; gap: 0.625rem; padding: 0.5rem 0.625rem; border-radius: 0.5rem; cursor: pointer; transition: background 0.15s;"
+                       onmouseover="this.style.background='rgba(255,255,255,0.04)';"
+                       onmouseout="this.style.background='transparent';">
+                    <input type="checkbox" value="{{ chapter.data.title | slug }}"
+                           id="{{ chapter.data.title | slug }}"
+                           class="chapter-checkbox" checked
+                           style="appearance: none; width: 1rem; height: 1rem; border: 1.5px solid rgba(99,102,241,0.4); border-radius: 0.25rem; background: rgba(99,102,241,0.1); cursor: pointer; flex-shrink: 0;">
+                    <span style="font-size: 0.875rem; color: rgb(203 213 225);">{{ chapter.data.title }}</span>
+                </label>
+                {% endfor %}
+            </div>
+
+            <div style="margin-top: 1.25rem; display: flex; gap: 0.625rem; justify-content: flex-end;">
+                <button onclick="closeModal('pdfModal')"
+                        style="padding: 0.5rem 0.875rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 0.5rem; color: rgb(148 163 184); cursor: pointer; font-size: 0.8125rem; transition: all 0.2s;"
+                        onmouseover="this.style.background='rgba(255,255,255,0.1)';"
+                        onmouseout="this.style.background='rgba(255,255,255,0.05)';">
+                    Annulla
+                </button>
+                <button id="downloadPdfBtn"
+                        style="padding: 0.5rem 1.25rem; background: rgb(79 70 229); border: 1px solid rgba(99,102,241,0.4); border-radius: 0.5rem; color: white; cursor: pointer; font-size: 0.8125rem; font-weight: 600; transition: all 0.2s; display: flex; align-items: center; gap: 0.375rem;"
+                        onmouseover="this.style.background='rgb(99 102 241)'; this.style.boxShadow='0 4px 12px rgba(99,102,241,0.35)';"
+                        onmouseout="this.style.background='rgb(79 70 229)'; this.style.boxShadow='';">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Scarica PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── SCRIPTS ──────────────────────────────────────────────────── -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+    // ── Chapter accent colors ───────────────────────────────────────────
+    const CHAPTER_COLORS = [
+        "#818cf8","#34d399","#f472b6","#fb923c","#60a5fa",
+        "#a78bfa","#4ade80","#facc15","#f87171","#2dd4bf",
+        "#c084fc","#fb7185","#38bdf8","#86efac","#fda4af",
+        "#67e8f9","#d8b4fe"
+    ];
+
+    document.querySelectorAll('.chapter-card').forEach((card, i) => {
+        const color = CHAPTER_COLORS[i % CHAPTER_COLORS.length];
+        card.style.setProperty('--chapter-color', color);
+        // Chapter number badge border color
+        const badge = card.querySelector('.chapter-num');
+        if (badge) {
+            badge.style.background = color + '18';
+            badge.style.borderColor = color + '30';
+            badge.querySelector('span').style.color = color;
+        }
+        card.querySelector('.chapter-heading').style.color = color;
+        card.querySelectorAll('.chapter-content h2, .chapter-content h3').forEach(el => {
+            el.style.borderLeftColor = color;
+            el.style.color = color + 'cc';
+        });
+        // Hover border color
+        card.addEventListener('mouseenter', () => {
+            if (card.classList.contains('visible')) {
+                card.style.borderColor = color + '40';
             }
-            document.addEventListener('DOMContentLoaded', function () {
-                const scrollTopBtn = document.getElementById('scrollTopBtn');
-                scrollTopBtn.addEventListener('click', function () {
-                    window.scrollTo({top: 0, behavior: 'smooth'});
-                });
-                window.addEventListener('scroll', function () {
-                    if (window.scrollY > 100) {
-                        scrollTopBtn.style.display = 'block';
-                    } else {
-                        scrollTopBtn.style.display = 'none';
-                    }
-                });
-                const colors = [
-                    "#FF6F61", // Pastel Red
-                    "#92A8D1", // Pastel Blue
-                    "#88B04B", // Pastel Green
-                    "#F7786B", // Pastel Coral
-                    "#DE6FA1", // Pastel Magenta
-                    "#009B77", // Pastel Teal
-                    "#955251", // Pastel Brown
-                    "#B565A7", // Pastel Purple
-                    "#DD4124", // Pastel Orange
-                    "#45B8AC", // Pastel Mint
-                    "#5B5EA6", // Pastel Indigo
-                    "#9B2335", // Pastel Burgundy
-                    "#DFCFBE", // Pastel Beige
-                    "#BC243C", // Pastel Crimson
-                    "#98B4D4", // Pastel Periwinkle
-                    "#C94C4C", // Pastel Maroon
-                    "#FFA07A" // Pastel Salmon
-                ];
-                const chapterCards = document.querySelectorAll('.chapter-card');
-                chapterCards.forEach((card, index) => {
-                    const color = colors[index % colors.length];
-                    const headingsAndBold = card.querySelectorAll('h1, h2, h3, h4, b, strong');
-                    headingsAndBold.forEach(element => {
-                        element.style.color = color;
-                    });
-                });
-                const pdfModal = new bootstrap.Modal(document.getElementById('pdfModal'));
-                const generatePdfButton = document.getElementById('generatePdfButton');
-                const downloadPdfButton = document.getElementById('downloadPdfButton');
-                const chapterCheckboxes = document.querySelectorAll('.chapter-checkbox');
-                const selectAll = document.getElementById('selectAll');
-                generatePdfButton.addEventListener('click', function () {
-                    pdfModal.show();
-                });
-                selectAll.addEventListener('change', function () {
-                    chapterCheckboxes.forEach(checkbox => {
-                        checkbox.checked = selectAll.checked;
-                    });
-                });
-                downloadPdfButton.addEventListener('click', function () {
-                    const {jsPDF} = window.jspdf;
-                    const doc = new jsPDF();
-                    let pageHeight = doc
-                        .internal
-                        .pageSize
-                        .height;
-                    let cursorY = 10;
-                    const addText = (text, fontSize, color) => {
-                        doc.setFontSize(fontSize);
-                        doc.setTextColor(color);
-                        let lines = doc.splitTextToSize(text, 180);
-                        let lineHeight = fontSize * 0.3528;
-                        lines.forEach(line => {
-                            if (cursorY + lineHeight > pageHeight - 10) {
-                                doc.addPage();
-                                cursorY = 10;
-                            }
-                            doc.text(line, 10, cursorY);
-                            cursorY += lineHeight;
-                        });
-                    };
-                    chapterCheckboxes.forEach((checkbox, index) => {
-                        if (checkbox.checked) {
-                            const card = document.getElementById(`card-${
-                                checkbox.value
-                            }`);
-                            const title = card.querySelector('h1').textContent;
-                            const contentElements = card.querySelectorAll('.card-text > *');
-                            const color = window.getComputedStyle(card.querySelector('h1')).color;
-                            if (index > 0) {
-                                doc.addPage();
-                                cursorY = 10;
-                            }
-                            // Add title
-                            addText(title, 16, color);
-                            // Add content
-                            contentElements.forEach(element => {
-                                let elementText = element.textContent;
-                                let tagName = element.tagName.toLowerCase();
-                                let elementColor = window.getComputedStyle(element).color;
-                                switch (tagName) {
-                                    case 'p': addText(elementText, 12, elementColor);
-                                        break;
-                                    case 'pre':
-                                        let code = element.innerText;
-                                        if (cursorY + 60 > pageHeight - 10) {
-                                            doc.addPage();
-                                            cursorY = 10;
-                                        }
-                                        doc.setFontSize(10);
-                                        doc.setTextColor('#000000');
-                                        doc.setFillColor(240, 240, 240);
-                                        doc.rect(10, cursorY, 190, 60, 'F');
-                                        doc.text(doc.splitTextToSize(code, 180), 10, cursorY + 5);
-                                        cursorY += 65;
-                                        break;
-                                    case 'h2':
-                                    case 'h3':
-                                    case 'h4':
-                                    case 'h5':
-                                    case 'h6': addText(elementText, 14, elementColor);
-                                        break;
-                                    case 'b':
-                                    case 'strong': addText(elementText, 12, elementColor);
-                                        break;
-                                    default: addText(elementText, 12, elementColor);
-                                        break;
-                                }
-                            });
-                        }
-                    });
-                    doc.save('bibbia-junior-dev.pdf');
-                    pdfModal.hide();
-                });
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.borderColor = 'rgba(255,255,255,0.06)';
+        });
+    });
+
+    // ── Card entrance via IntersectionObserver ──────────────────────────
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                const card = entry.target;
+                const delay = parseInt(card.dataset.index || 0) * 60;
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, Math.min(delay, 400));
+                cardObserver.unobserve(card);
+            }
+        });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.chapter-card').forEach(card => {
+        cardObserver.observe(card);
+    });
+
+    // ── macOS-style code block headers ─────────────────────────────────
+    document.querySelectorAll('pre').forEach(pre => {
+        pre.style.position = 'relative';
+
+        // Detect language from <code> class (e.g. "language-java") set by Shiki
+        const code = pre.querySelector('code');
+        let lang = '';
+        if (code) {
+            const cls = code.className || '';
+            const match = cls.match(/language-(\w+)/);
+            if (match) lang = match[1];
+        }
+
+        // Build header
+        const header = document.createElement('div');
+        header.className = 'code-block-header';
+
+        const dots = document.createElement('div');
+        dots.className = 'code-dots';
+        [['#ff5f57','#ff3b30'],['#febc2e','#ffcc00'],['#28c840','#34c759']].forEach(([bg]) => {
+            const dot = document.createElement('span');
+            dot.className = 'code-dot';
+            dot.style.background = bg;
+            dots.appendChild(dot);
+        });
+
+        const langTag = document.createElement('span');
+        langTag.className = 'code-lang-tag';
+        langTag.textContent = lang || 'code';
+
+        header.appendChild(dots);
+        header.appendChild(langTag);
+        pre.insertBefore(header, pre.firstChild);
+
+        // Copy button — reads directly from <code> to avoid picking up header/button text
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copia';
+        btn.addEventListener('click', () => {
+            const text = code ? code.textContent : '';
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copiato ✓';
+                btn.style.color = 'rgb(52 211 153)';
+                btn.style.borderColor = 'rgba(52,211,153,0.3)';
+                btn.style.background = 'rgba(52,211,153,0.1)';
+                setTimeout(() => {
+                    btn.textContent = 'Copia';
+                    btn.style.color = '';
+                    btn.style.borderColor = '';
+                    btn.style.background = '';
+                }, 2000);
             });
-                    
-        </script>
-        <script>
-            console.log(
-                `%c
-                                                        \n\
-                  _/            _/  _/        _/        \n\
-                 _/    _/_/_/      _/  _/               \n\
-                _/  _/    _/  _/  _/_/      _/          \n\
-         _/    _/  _/    _/  _/  _/  _/    _/           \n\
-          _/_/      _/_/_/  _/  _/    _/  _/            \n\
-                                                        \n\
-`,
-                "background: #133337; color: #ccc; font-size: 15px;padding: 1px;font-family: monospace;"
-            );
-            console.log(
-                "%c             Why are you here? 🤠👍              ", "background: #133337; color: #ccc; font-size: 15px;padding: 15px;font-family: monospace;"
-            );
-        </script>
-    </body>
+        });
+        pre.appendChild(btn);
+    });
+
+    // ── Reading progress bar ────────────────────────────────────────────
+    const progressBar = document.getElementById('readingProgress');
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+
+    // ── Modal helpers ───────────────────────────────────────────────────
+    function openModal(id) {
+        const el = document.getElementById(id);
+        el.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+        const el = document.getElementById(id);
+        el.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    // Wire info buttons
+    ['infoBtn','infoSidebarBtn','infoMobileBtn'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.addEventListener('click', () => openModal('infoModal'));
+    });
+
+    // Wire PDF buttons
+    ['generatePdfBtn','pdfSidebarBtn','pdfMobileBtn'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.addEventListener('click', () => openModal('pdfModal'));
+    });
+
+    // Easter egg
+    document.getElementById('easterEggBtn').addEventListener('click', () => {
+        location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    });
+
+    // Close modals with Escape
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            closeModal('infoModal');
+            closeModal('pdfModal');
+        }
+    });
+
+    // ── Select All checkbox ─────────────────────────────────────────────
+    function toggleSelectAll(el) {
+        document.querySelectorAll('.chapter-checkbox').forEach(cb => {
+            cb.checked = el.checked;
+        });
+    }
+
+    // ── Scroll to top ───────────────────────────────────────────────────
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+        scrollBtn.style.display = window.scrollY > 200 ? 'flex' : 'none';
+    }, { passive: true });
+
+    // ── Scroll spy: highlight active chapter in sidebar ─────────────────
+    const navLinks = document.querySelectorAll('.nav-link[data-target]');
+
+    function updateActiveLink() {
+        const cards = document.querySelectorAll('.chapter-card');
+        let activeId = null;
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (rect.top <= 100) activeId = card.id;
+        });
+        navLinks.forEach(link => {
+            const isActive = link.dataset.target === activeId;
+            link.classList.toggle('active', isActive);
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
+
+    // ── Search / filter nav ─────────────────────────────────────────────
+    function filterNav(query) {
+        const q = query.toLowerCase();
+        document.querySelectorAll('.nav-link').forEach(link => {
+            const matches = link.textContent.toLowerCase().includes(q);
+            link.style.display = matches ? '' : 'none';
+        });
+        const sidebar = document.getElementById('sidebarSearch');
+        const mobile  = document.getElementById('mobileSearch');
+        if (sidebar && sidebar.value !== query)  sidebar.value = query;
+        if (mobile  && mobile.value  !== query)  mobile.value  = query;
+    }
+
+    // ── Mobile drawer ───────────────────────────────────────────────────
+    function openMobileDrawer() {
+        const drawer  = document.getElementById('mobileDrawer');
+        const overlay = document.getElementById('mobileDrawerOverlay');
+        drawer.style.display  = 'block';
+        overlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => { drawer.style.transform = 'translateX(0)'; }, 10);
+    }
+    function closeMobileDrawer() {
+        const drawer  = document.getElementById('mobileDrawer');
+        const overlay = document.getElementById('mobileDrawerOverlay');
+        drawer.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            drawer.style.display  = 'none';
+            overlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }, 300);
+    }
+    document.getElementById('mobileMenuBtn').addEventListener('click', openMobileDrawer);
+
+    // ── Responsive: show/hide hamburger ────────────────────────────────
+    function applyResponsive() {
+        const isMobile = window.innerWidth < 1024;
+        const sidebar  = document.getElementById('sidebar');
+        const layout   = document.getElementById('mainLayout');
+        const hamburger = document.getElementById('mobileMenuBtn');
+        const desktopNav = document.getElementById('desktopNav');
+
+        if (isMobile) {
+            sidebar.style.display  = 'none';
+            layout.style.gridTemplateColumns = '1fr';
+            hamburger.style.display = 'flex';
+            desktopNav.style.display = 'none';
+        } else {
+            sidebar.style.display  = 'block';
+            layout.style.gridTemplateColumns = '1fr 272px';
+            hamburger.style.display = 'none';
+            desktopNav.style.display = 'flex';
+        }
+    }
+    window.addEventListener('resize', applyResponsive);
+    applyResponsive();
+
+    // ── PDF Generation ──────────────────────────────────────────────────
+    document.getElementById('downloadPdfBtn').addEventListener('click', function () {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        let pageH   = doc.internal.pageSize.height;
+        let cursorY = 10;
+
+        const addText = (text, size, color) => {
+            doc.setFontSize(size);
+            doc.setTextColor(color);
+            doc.splitTextToSize(text, 180).forEach(line => {
+                const lh = size * 0.3528;
+                if (cursorY + lh > pageH - 10) { doc.addPage(); cursorY = 10; }
+                doc.text(line, 10, cursorY);
+                cursorY += lh;
+            });
+        };
+
+        const checkboxes = document.querySelectorAll('.chapter-checkbox');
+        let first = true;
+        checkboxes.forEach((cb) => {
+            if (!cb.checked) return;
+            const card  = document.getElementById('card-' + cb.value);
+            if (!card) return;
+            const title = card.querySelector('.chapter-heading').textContent.trim();
+            const color = window.getComputedStyle(card.querySelector('.chapter-heading')).color;
+            if (!first) { doc.addPage(); cursorY = 10; }
+            first = false;
+            addText(title, 16, color);
+            card.querySelectorAll('.chapter-content > *').forEach(el => {
+                const tag  = el.tagName.toLowerCase();
+                const text = el.textContent.trim();
+                const elC  = window.getComputedStyle(el).color;
+                if (!text) return;
+                switch (tag) {
+                    case 'h2': case 'h3': case 'h4': addText(text, 13, elC); break;
+                    case 'pre':
+                        if (cursorY + 40 > pageH - 10) { doc.addPage(); cursorY = 10; }
+                        doc.setFontSize(9); doc.setTextColor('#000');
+                        doc.setFillColor(240, 240, 240);
+                        doc.rect(10, cursorY, 190, 40, 'F');
+                        doc.text(doc.splitTextToSize(el.innerText||text, 180), 10, cursorY+5);
+                        cursorY += 45; break;
+                    default: addText(text, 11, elC); break;
+                }
+            });
+        });
+        doc.save('bibbia-junior-dev.pdf');
+        closeModal('pdfModal');
+    });
+
+    // ── Console ASCII art ───────────────────────────────────────────────
+    console.log(
+        `%c\n  _/  _/        _/  _/\n _/    _/_/_/      _/  _/\n_/  _/    _/  _/  _/_/\n_/  _/    _/  _/  _/  _/\n _/_/  _/_/_/  _/  _/\n`,
+        "background:#0d1017;color:#818cf8;font-size:13px;font-family:monospace;"
+    );
+    console.log(
+        "%c  Bibbia Junior Dev — Built with Eleventy + Tailwind CSS  ",
+        "background:#0d1017;color:#a5b4fc;font-size:12px;padding:8px;font-family:monospace;"
+    );
+    </script>
+</body>
 </html>
